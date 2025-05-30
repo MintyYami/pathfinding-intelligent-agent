@@ -15,10 +15,10 @@ model = Model((12, 12), 5, ORDER_SIZE)
 view = TkView(model)
 
 # control
-control = RBAgent()
+# control = RBAgent()
 # control = AStarAgent()
 # control = NNAgent()
-# control = GAAgent()
+control = GAAgent()
 
 control.initialise(model)
 

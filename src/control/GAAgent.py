@@ -11,6 +11,7 @@ class GAAgent(BaseAgent):
     def __init__(self):
         super().__init__()
         self.final_weights = load(os.path.join("control", "training_data", "GAsolution.joblib"))
+        self.scaler = load(os.path.join("control", "training_data", "GA-scaler.joblib"))
 
     def _choose_action(self, agent):
         input_state = self._preprocess_encode(self._encode_state(agent))
@@ -85,7 +86,6 @@ class GAAgent(BaseAgent):
         ]
 
         # Create DataFrame
-        scaler = StandardScaler()
         df = pd.DataFrame([encoded_input], columns=state_columns)
 
-        return scaler.fit_transform(df)
+        return self.scaler.fit_transform(df)

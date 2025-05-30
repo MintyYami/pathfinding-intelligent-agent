@@ -10,6 +10,8 @@ import random
 class NNAgent(BaseAgent):
     def __init__(self):
         self.clf = load(os.path.join("control", "training_data", "NN-CLF-trainer.joblib"))
+        self.encoder = load(os.path.join("control", "training_data", "NN-encoder.joblib"))
+        self.scaler = load(os.path.join("control", "training_data", "NN-scaler.joblib"))
 
     def _choose_action(self, agent):
         encoded_move = self.clf.predict(self._preprocess_encode(self._encode_state(agent)))
@@ -78,21 +80,9 @@ class NNAgent(BaseAgent):
         df = pd.DataFrame([encoded_input], columns=state_columns)
 
         neighbour_col = ["at_up", "at_down", "at_left", "at_right"]
-
-        # Explicitly define all categories for consistency
-        all_possible_categories = [[-1, 0, 1, 2, 3, 4, 5]] * len(neighbour_col)
-
-        encoder = OneHotEncoder(
-            categories=all_possible_categories,
-            handle_unknown="ignore",
-            sparse_output=False
-        ).set_output(transform="pandas")
-
-        transformed_columns = encoder.fit_transform(df[neighbour_col])
-
+        transformed_columns = self.encoder.transform(df[neighbour_col])
         df_dropped = df.drop(columns=neighbour_col)
 
         df_encoded = pd.concat([df_dropped, transformed_columns], axis=1)
 
-        scaler = StandardScaler()
-        return scaler.fit_transform(df_encoded)
+        return self.scaler.transform(df_encoded)
