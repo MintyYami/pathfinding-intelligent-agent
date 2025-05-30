@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09cb1fb9-e409-468f-897f-8d52e4a023f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="09cb1fb9-e409-468f-897f-8d52e4a023f5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +26,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/HP/Desktop/Nottingham/COMP3004/Pathfinding",
@@ -57,6 +56,7 @@
       <workItem from="1748568866755" duration="195000" />
       <workItem from="1748569134319" duration="34000" />
       <workItem from="1748569316721" duration="1515000" />
+      <workItem from="1748575678768" duration="310000" />
     </task>
     <servers />
   </component>
